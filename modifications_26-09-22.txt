@@ -1,0 +1,9 @@
+Modifications apportées
+
+Revue du code index.html et passage au validateur W3C
+- balise fermante div surnuméraire enlevée
+- rajout des classes
+
+Fichier scss
+- édition du code pour la page index.html
+- nesting 
