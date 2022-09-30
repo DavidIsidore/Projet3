@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr-FR">
 
 <head>
     <meta charset="UTF-8" />
@@ -11,105 +11,166 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&family=Shrikhand&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <script src="https://kit.fontawesome.com/caa00f319b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
 <body>
+    <!--En-tête de la page-->
+    <header class="header">
+        <div>
+            <!--Flèche de retour vers l'accueil-->
+            <a href="index.html"><i class="fa-solid fa-arrow-left fa-2x"></i></a>
+            <!--Bloc logo-->
+            <div class="header__logo">ohmyfood</div>
+        </div>
+    </header>
     <main>
-        <header>
+        <!--Bloc photo-menus-->
+        <section class="restaurant">
+            <!--Bloc photo du restaurant-->
             <div>
-                <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
-                <img src="./images/logo/ohmyfood.png">
+                <!--Photo du restaurant-->
+                <img class="photo_menu" src="./images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg" alt="">
             </div>
-        </header>
-        <section>
-            <div>
-                <img src="./images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg">
+            <!--Bloc de titre-->
+            <div class="restaurant__header">
+                <!--Nom du restaurant-->
+                <h2 class="restaurant__header__titre">Le délice des sens</h2>
+                <!--icone coeur-->
+                <i class="fa-regular fa-heart fa-2x"></i>
             </div>
-            <section>
-                <div>
-                    <h3>Entrées</h3>
-                    <div>
-                        <h3>Tartare de thon</h3>
-                        <div>
+            <!--Section des menus-->
+            <section class="restaurant__menu">
+                <!--Bloc des entrées-->
+                <div class="restaurant__menu__plats">
+                    <!--Sous-titre-->
+                    <h3><span class="restaurant__menu__plats__souligne">ENTR</span>ÉES</h3>
+                    <!--Bloc entrée 1-->
+                    <div class="unitaire">
+                        <div class="unitaire__1">
+                            <h3>Tartare de thon</h3>
                             <p>Assaisonné au yuzu</p>
+                        </div>
+                        <div class="prix">
                             <p>25€</p>
                         </div>
                     </div>
-                    <div>
-                        <h3>Bouchée de homard croustillant </h3>
-                        <div>
-                            <p>Et sa farandole de petits légumes</p>
+                    <!--Bloc entrée 2-->
+                    <div class="unitaire">
+                        <div class="unitaire__1"><h3>Bouchée de homard croustillant </h3>
+                        <p>Et sa farandole de petits légumes</p></div>
+                        <div class="prix">
                             <p>35€</p>
                         </div>
                     </div>
-                     <div>
-                        <h3>Velouté de cèpes </h3>
-                        <div>
-                            <p>Aux truffes</p>
+                    <!--Bloc entrée 3-->
+                    <div class="unitaire">
+                        <div class="unitaire__1"><h3>Velouté de cèpes </h3>
+                        <p>Aux truffes</p></div>
+                        <div class="prix">
                             <p>20€</p>
                         </div>
                     </div>
-                   <div>
-                    <h3>Plats</h3>
-                    <div>
-                        <h3>Poulet rôti aux herbes de Provence </h3>
-                        <div>
-                            <p>Et sa crème de truffe</p>
+                </div>
+                    <!--Bloc des plats-->
+                <div class="restaurant__menu__plats">
+                    <!--Sous-titre-->
+                    <h3><span class="restaurant__menu__plats__souligne">PLAT</span>S</h3>
+                    <!--Bloc plat 1-->
+                    <div class="unitaire">
+                        <div class="unitaire__1"><h3>Poulet rôti aux herbes de Provence </h3>
+                        <p>Et sa crème de truffe</p></div>
+                        <div class="prix">
                             <p>40€</p>
                         </div>
                     </div>
-                    <div>
-                        <h3>Langouste rôtie </h3>
-                        <div>
-                            <p>Et ses légumes de saison</p>
+                    <!--Bloc plat 2-->
+                    <div class="unitaire">
+                        <div class="unitaire__1"><h3>Langouste rôtie </h3>
+                        <p>Et ses légumes de saison</p></div>
+                        <div class="prix">
                             <p>35€</p>
                         </div>
                     </div>
-                     <div>
-                        <h3>Côte de boeuf Angus </h3>
-                        <div>
-                            <p>Et sa purée de panais</p>
+                    <!--Bloc plat 3-->
+                     <div class="unitaire">
+                        <div class="unitaire__1"><h3>Côte de boeuf Angus </h3>
+                        <p>Et sa purée de panais</p></div>
+                        <div class="prix">
                             <p>44€</p>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <h3>Desserts</h3>
-                    <div>
-                        <h3>Farandole de desserts</h3>
-                        <div>
-                            <p>Du chef</p>
+                <!--Bloc des desserts-->
+                <div class="restaurant__menu__plats">
+                    <!--Sous-titre-->
+                    <h3><span class="restaurant__menu__plats__souligne">DESS</span>ERTS</h3>
+                    <!--Bloc dessert 1-->
+                    <div class="unitaire">
+                        <div class="unitaire__1"><h3>Farandole de desserts</h3>
+                        <p>Du chef</p></div>
+                        <div class="prix">
                             <p>18€</p>
                         </div>
                     </div>
-                    <div>
-                        <h3>Crème brulée </h3>
-                        <div>
-                            <p>Revisitée</p>
+                    <!--Bloc dessert 2-->
+                    <div class="unitaire">
+                        <div class="unitaire__1"><h3>Crème brulée </h3>
+                        <p>Revisitée</p></div>
+                        <div class="prix">
                             <p>22€</p>
                         </div>
                     </div>
-                     <div>
-                        <h3>Tiramisu</h3>
-                        <div>
-                            <p>À la noisette</p>
+                    <!--Bloc dessert 3-->
+                     <div class="unitaire">
+                        <div class="unitaire__1"><h3>Tiramisu</h3>
+                        <p>À la noisette</p></div>
+                        <div class="prix">
                             <p>23€</p>
                         </div>
                     </div>
-                </div>
-                    
-                
-            </section>
+                </div>            
+            </section>        
+        <button>Commander</button>
         </section>
-         <footer>
-         <img src="./images/logo/ohmyfood.png">
-         <ul>
-            <li><a href="#"><div><i class="fa-solid fa-utensils"></i><p>Proposer un restaurant</p></div></a></li>
-            <li><a href="#"><div><i class="fa-solid fa-handshake"></i><p>Devenir partenaire</p></div></a></li>
-            <li><a href="#"><p>Mentions légales</p></div></a></li>
-            <li><a href="#"><p>Contact</p></div></a></li>
-         </ul>
-        </footer>
-    </main>
+        </main>
+          <!--Bas de page-->
+        <footer class="footer">
+            <!--Logo Ohmyfood-->
+            <!--<img src="./images/logo/ohmyfood.png">-->
+            <div class="footer__logo">ohmyfood</div>
+            <!--Liste de liens-->
+            <ul class="footer__list">
+                <!--Lien vers proposer un restaurant-->
+                <li >
+                    <a href="#">
+                        <div class="footer__list__item"><i class="fa-solid fa-utensils"></i>
+                            <p>Proposer un restaurant</p>
+                        </div>
+                    </a>
+                </li>
+                <!--Lien vers devenir partenaire-->
+                <li>
+                    <a href="#">
+                        <div class="footer__list__item"><i class="fa-solid fa-handshake"></i>
+                            <p>Devenir partenaire</p>
+                        </div>
+                    </a>
+                </li>
+                <!--Lien vers Mentions légales-->
+                <li>
+                    <a href="#">
+                        <div><p>Mentions légales</p>
+                        </div>
+                    </a>
+                </li>
+                <!--Lien vers Contact-->
+                <li>
+                    <a href="#">
+                        <div><p>Contact</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </footer>    
 </body>
