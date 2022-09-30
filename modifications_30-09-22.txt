@@ -1,0 +1,3 @@
+Modification des fichiers delice.html, francaise.html, note.html et palette.html
+Création du fichier main.scss
+Ajout de commentaires dans les fichiers html
