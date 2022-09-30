@@ -1,0 +1,139 @@
+/*Couleurs*/
+body {
+  font-family: Roboto;
+  width: 100%;
+  margin-left: 0; }
+
+.header {
+  display: flex;
+  flex-direction: column; }
+  .header__logo {
+    font-family: Shrikhand;
+    font-size: 4em;
+    text-align: center; }
+  .header__form {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 50px;
+    background-color: grey;
+    align-items: center;
+    padding-left: 40px; }
+    .header__form input {
+      background-color: grey;
+      border: none;
+      width: 150px;
+      font-size: 1.3em; }
+
+.presentation {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center; }
+  .presentation__titre {
+    font-size: 2em;
+    padding-left: 20px; }
+  .presentation__texte {
+    font-size: 1.3em; }
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 50px;
+  width: 200px;
+  background-color: #9356DC;
+  color: white;
+  border-radius: 25px; }
+
+.fonctionnement {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 95%; }
+  .fonctionnement__choix {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 10px;
+    border: 1px solid white;
+    border-radius: 25px;
+    box-shadow: 4px 4px grey; }
+    .fonctionnement__choix .fa-store {
+      color: #9356DC; }
+  .fonctionnement .choix {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .fonctionnement .choix__cercle {
+      background-color: #9356DC;
+      border: 1px solid #9356DC;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      text-align: center; }
+
+.selection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 30px; }
+  .selection .restaurant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    gap: 15px; }
+    .selection .restaurant__link {
+      display: flex;
+      justify-content: center;
+      width: 95%; }
+    .selection .restaurant__texte {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%; }
+      .selection .restaurant__texte .texte {
+        display: flex;
+        flex-direction: column; }
+      .selection .restaurant__texte .icone {
+        justify-content: center; }
+  .selection .photo {
+    width: 95%;
+    height: 200px;
+    border-radius: 25px 25px 0 0;
+    object-fit: cover;
+    overflow: hidden; }
+
+.texte {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 15px; }
+
+.footer {
+  background-color: black;
+  margin-top: 50px; }
+  .footer__logo {
+    font-family: Shrikhand;
+    font-size: 2em;
+    color: white;
+    padding-left: 40px;
+    padding-top: 40px; }
+  .footer__list {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    list-style: none; }
+    .footer__list a {
+      text-decoration: none;
+      color: white; }
+    .footer__list__item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px; }
+
+/*# sourceMappingURL=main.css.map */

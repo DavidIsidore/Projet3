@@ -1,0 +1,339 @@
+/*Couleurs*/
+
+$couleur_primaire:#9356DC;
+$couleur_secondaire:#FF79DA;
+$couleur_tertiaire:#99E2D0;
+
+@mixin cercle
+{
+    background-color:$couleur_primaire;
+    border:1px solid $couleur_primaire;
+    border-radius:50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color:white;
+    font-weight: 700;
+}
+
+@mixin flex_column
+{
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex_row
+{
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flex_center
+{
+    display: flex;
+    align-items:center;
+}
+
+
+
+
+
+body
+{
+    font-family: "Roboto";
+    width: 100%;
+    margin:auto;
+}
+
+.header
+{
+    @include flex_column;
+    &__logo
+    {
+        font-family: "Shrikhand";
+        font-size: 4em;
+        text-align: center;
+    }
+    a
+    {
+        position: relative;
+        top:65px;
+        left: 20px;
+    }
+    a:visited
+    {
+        text-decoration: none;
+        color: black;
+    }
+
+}
+
+.form
+{
+    @include flex_center;
+    justify-content: center;
+    gap:20px;
+    height: 50px;
+    background-color:grey;
+    input
+    {
+        background-color:grey;
+        border:none;
+        width: 150px;
+        font-size: 1.3em;
+    }
+}
+
+.presentation
+{
+    @include flex_column;
+    flex-wrap: wrap;
+    text-align: center;
+    &__titre
+    {
+        font-size: 2em;
+        padding-left:20px;
+    }
+    &__texte
+    {
+        font-size: 1.3em;
+    }
+}
+
+button
+{
+    @include flex_center;
+    justify-content: center;
+    margin: auto;
+    height: 60px;
+    width: 250px;
+    color: white;
+    font-size: 1.1em;
+    border-radius:30px;
+    background:linear-gradient(0deg,$couleur_secondaire,$couleur_secondaire 2%,$couleur_primaire);
+}
+
+.fonctionnement-selection
+{
+    @include flex_column;
+    gap:50px;
+}
+
+.fonctionnement
+{
+    @include flex_column;
+    gap:20px;
+    margin: auto;
+    width: 95%;
+    .bloc
+    {
+        gap:20px;
+        @include flex_column;
+        margin: auto;
+        width: 95%;
+        p
+        {
+            font-weight: 700;
+        }
+    }
+    &__choix
+    {
+        @include flex_center;
+        gap:10px;
+        height: 75px;
+        padding-left:10px;
+        background-color:lightgrey;
+        border:1px solid white;
+        border-radius:25px;
+        box-shadow:4px 4px 4px $couleur_tertiaire;
+        .fa-solid:hover
+        {
+            color: $couleur_primaire;
+        }
+    }
+    .choix
+    {
+        @include flex_row;
+        @include flex_center;
+        &__cercle
+        {
+            @include cercle;
+            position:relative;
+            left: -20px;
+        }
+    }
+}
+
+.selection 
+{
+    @include flex_column;
+    gap:30px;
+    background-color:lightgrey;
+    padding-bottom:50px;
+    h2
+    {
+        padding-left:20px
+    }
+    .restaurant
+    {
+       @include flex_column;
+       @include flex_center;
+       height: 300px;
+       background-color:white;
+       border-radius:25px;
+       width: 90%;
+       margin: auto;
+       &__link
+       {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+            .block
+            {
+                display: contents;
+            }
+        }
+    
+        &__texte
+        {
+            @include flex_row;
+            justify-content: space-around;
+            width: 100%;
+            height: 100px;
+            .texte
+            {
+                @include flex_column;
+            }
+            .icone
+            {
+                @include flex_column;
+                justify-content:center;
+            }
+        }
+    }
+}
+
+.photo 
+{
+    width: 100%;
+    height: 200px;
+    border-radius:25px 25px 0 0;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+
+.texte
+{
+   @include flex_column;
+   justify-content: space-between;
+   padding-right:15px;
+}
+
+.footer
+{
+    background-color:black;
+    height: 350px;
+    &__logo
+    {
+        font-family: Shrikhand;
+        font-size: 2em;
+        color: white;
+        padding-left:40px;
+        padding-top:40px;
+    }
+    &__list
+    {
+        color: white;
+        @include flex_column;
+        list-style: none;
+        a
+        {
+            text-decoration: none;
+            color: white;
+        }
+        &__item
+        {
+            @include flex_row;
+            align-items:center;
+            gap:20px;
+        }
+    }
+}
+
+.photo_menu 
+{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.restaurant
+{
+    background-color:lightgrey;
+    height: 2100px;
+    &__header
+    {
+        @include flex_row;
+        @include flex_center;
+        justify-content: space-around;
+        background-color:lightgrey;
+        border-radius:25px 25px 0 0;
+        position:relative;
+        top: -70px;
+        &__titre
+        {
+            font-family: Shrikhand;
+            font-size: 3em;
+        }
+    }
+    &__menu
+    {
+        @include flex_column;
+        background-color:lightgrey;
+        gap:50px;
+        position:relative;
+        top: -70px;
+
+        &__plats
+        {
+            @include flex_column;
+            width: 90%;
+            margin: auto;
+            gap:30px;
+            &__souligne
+            {
+                border-bottom:2px solid $couleur_tertiaire;
+            }
+            .unitaire
+            {
+            @include flex_row;
+            justify-content: space-between;
+            background-color:white;
+            height: 100px;
+            width: 90%;
+            border-radius:25px;
+            &__1
+            {
+                display: flex;
+                flex-direction: column;
+                h3,p
+                {
+                    padding-left:20px;
+                }
+            }
+                .prix
+                {
+                    display: flex;
+                    align-items: flex-end;
+                    padding-right:20px;
+                }
+                
+            }
+    
+        }
+    }
+}
+
+
