@@ -4,6 +4,8 @@ $couleur_primaire:#9356DC;
 $couleur_secondaire:#FF79DA;
 $couleur_tertiaire:#99E2D0;
 
+
+
 @mixin cercle
 {
     background-color:$couleur_primaire;
@@ -117,6 +119,22 @@ button
 {
     @include flex_column;
     gap:50px;
+}
+
+.nouveau
+{
+    
+    position:absolute;
+    right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 75px;
+    height: 40px;
+    border:1px solid $couleur-tertiaire;
+    background-color:$couleur-tertiaire;
+    color:darken($couleur-tertiaire,30%)
+
 }
 
 .fonctionnement
@@ -271,6 +289,7 @@ button
 
 .restaurant
 {
+    position:relative;
     background-color:lightgrey;
     height: 2100px;
     &__header
