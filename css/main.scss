@@ -1,11 +1,18 @@
-/*Couleurs*/
+/* DEFINITION DES COULEURS*/
 
 $couleur_primaire:#9356DC;
 $couleur_secondaire:#FF79DA;
 $couleur_tertiaire:#99E2D0;
 
 
-
+/*IMBRICATION DU NUMERO DANS LE CERCLE*/
+/*Couleur de fond
+Couleur de la bordure
+Rayon de bordure
+Hauteur et largeur du cercle
+Centrage du texte
+Couleur du texte
+Epaisseur de police*/
 @mixin cercle
 {
     background-color:$couleur_primaire;
@@ -18,18 +25,21 @@ $couleur_tertiaire:#99E2D0;
     font-weight: 700;
 }
 
+/*ALIGNEMENT DLES ELEMENTS FLEX EN COLONNE*/
 @mixin flex_column
 {
     display: flex;
     flex-direction: column;
 }
 
+/*ALIGNEMENT DES ELEMENTS FLEX EN LIGNE*/
 @mixin flex_row
 {
     display: flex;
     flex-direction: row;
 }
 
+/*CENTRAGE VERTICAL DES ELEMENTS FLEX*/
 @mixin flex_center
 {
     display: flex;
@@ -39,7 +49,10 @@ $couleur_tertiaire:#99E2D0;
 
 
 
-
+/*CORPS DE LA PAGE*/
+/*Définition de la police
+Largeur de la page
+Centrage automatique*/
 body
 {
     font-family: "Roboto";
@@ -47,21 +60,32 @@ body
     margin:auto;
 }
 
+/*EN-TETE DE LA PAGE*/
 .header
 {
+    /*Alignement des éléments en colonne*/
     @include flex_column;
+    /*Logo de l'entreprise
+    Famille de police
+    Taille de police
+    Alignement centré du texte*/
     &__logo
     {
         font-family: "Shrikhand";
         font-size: 4em;
         text-align: center;
     }
+    /*Liens
+    Positionement relatif*/
     a
     {
         position: relative;
         top:65px;
         left: 20px;
     }
+    /*Liens visités
+    Couleur du texte
+    Pas de soulignement*/
     a:visited
     {
         text-decoration: none;
@@ -70,13 +94,24 @@ body
 
 }
 
+/*FORMULAIRE*/
 .form
 {
+    /*Centrage des éléments flex*/
     @include flex_center;
+    /*Centrage horizontal des éléments
+    Espacement entre les blocs
+    hauteur des blocs
+    Couleur de fond*/
     justify-content: center;
     gap:20px;
     height: 50px;
     background-color:grey;
+    /*Champ de saisie
+    Couleur de fond
+    Pas de boudure
+    Largeur du champ
+    Taille de police*/
     input
     {
         background-color:grey;
@@ -86,22 +121,41 @@ body
     }
 }
 
+/*PRESENTATION DE L'ENTREPRISE*/
 .presentation
 {
+    
+    /*Centrage vertical
+    Renvoi à la ligne
+    Centrage du texte*/
     @include flex_column;
     flex-wrap: wrap;
     text-align: center;
+    /*Titre de la présentation
+    Taille de police
+    Marge interne*/
     &__titre
     {
         font-size: 2em;
         padding-left:20px;
     }
+    /*Texte du concept de l'entreprise
+    Taille de police*/
     &__texte
     {
         font-size: 1.3em;
     }
 }
 
+/*BOUTON*/
+/*Centrage vertical
+Centrage horizontal
+Centrage automatique
+Hauteur et largeur du bouton
+Couleur du texte
+Police du texte
+Rayon de bordure du bouton
+Dégradé de la couleur de fond*/
 button
 {
     @include flex_center;
@@ -115,12 +169,189 @@ button
     background:linear-gradient(0deg,$couleur_secondaire,$couleur_secondaire 2%,$couleur_primaire);
 }
 
-.fonctionnement-selection
+
+/*BLOC DE DESCRIPTION DU FONCTIONNEMENT*/
+/*Eléments flex en colonne
+Espacement vertical des éléments
+Centrage automatique
+Largeur du bloc*/
+.fonctionnement
 {
     @include flex_column;
-    gap:50px;
+    gap:20px;
+    margin: auto;
+    width: 95%;
+    /*Bloc des instructions
+    Espacement vertical
+    Eléments en colonne
+    Centrage automatique
+    Largeur du bloc*/
+    .bloc
+    {
+        gap:20px;
+        @include flex_column;
+        margin: auto;
+        width: 95%;
+        /*Paragraphes
+        Epaisseur de la police*/
+        p
+        {
+            font-weight: 700;
+        }
+    }
+    /*Instruction de choix
+    Centrage vertical
+    Espacement vertical des éléments
+    Hauteur du bloc
+    Couleur de fond
+    Bordure et rayon de bordure
+    Ombre de la bordure*/
+    &__choix
+    {
+        @include flex_center;
+        gap:10px;
+        height: 75px;
+        padding-left:10px;
+        background-color:lightgrey;
+        border:1px solid white;
+        border-radius:25px;
+        box-shadow:4px 4px 4px $couleur_tertiaire;
+        /*Icone
+        Changement de couleur au survol de la souris*/
+        .fa-solid:hover
+        {
+            color: $couleur_primaire;
+        }
+    }
+    /*Icone et texte*/
+    /*Eléments flex en ligne
+    Centrage vertical*/
+    .choix
+    {
+        @include flex_row;
+        @include flex_center;
+        /*Numéro imbriqué*/
+        /*Réglages du cercle
+        Positionnement relatif*/
+        &__cercle
+        {
+            @include cercle;
+            position:relative;
+            left: -20px;
+        }
+    }
 }
 
+/*BLOC DE SELECTION DU RESTAURANT*/
+/*Eléments flex en colonne
+Marge supérieure pour espacer les blocs
+Espacement vertical des éléments
+Couleur de fond
+Marge interne*/
+.selection 
+{
+    @include flex_column;
+    margin-top:50px;
+    gap:30px;
+    background-color:lightgrey;
+    padding-bottom:50px;
+    /*Sous-titre de la section*/
+    /*Marge interne à gauche*/
+    h2
+    {
+        padding-left:20px
+    }
+    /*Bloc de sélection du restaurant*/
+    /*Eléments flex en colonne
+    Centrage vertical des éléments
+    Hauteur du bloc
+    Coueur de fond
+    Rayon de bordure
+    Largeur du bloc
+    Centrage horizontal automatique*/
+    .restaurant
+    {
+       @include flex_column;
+       @include flex_center;
+       height: 300px;
+       background-color:white;
+       border-radius:25px;
+       width: 90%;
+       margin: auto;
+       /*Lien vers le restaurant*/
+       /*Définition des éléments en tant que flexbox
+       Centrage horizontal
+       Largeur du bloc*/
+       &__link
+       {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+            /*La photo prend tout l'espace*/
+            .block
+            {
+                display: contents;
+            }
+        }
+
+
+    
+        /*Bloc de nom et d'emplacement du restaurant*/
+        /*Eléments flex en ligne
+        Espacement horizontal du texte
+        Largeur et hauteur du bloc*/
+        &__texte
+        {
+            @include flex_row;
+            justify-content: space-around;
+            width: 100%;
+            height: 100px;
+            /*Nom du restaurant et emplacement*/
+            /*Eléments flex en colonne
+            Espacement des éléments
+            Marge interne à droite*/
+            .texte
+            {
+                @include flex_column;
+                justify-content: space-between;
+                padding-right:15px;
+            }
+            /*Icone coeur*/
+            /*Elément flex en colonne
+            Centrage vertical*/
+            .icone
+            {
+                @include flex_column;
+                justify-content:center;
+                 .fa-regular:hover {
+  color: transparent;
+  opacity: 0;
+}
+.fa-solid {
+  color: transparent;
+  transition: ease-out all 400ms;
+}
+ i:hover {
+  transform: scale(1.3);
+  background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 1;
+}
+            }
+        }
+    }
+}
+
+/*Pannonceau indiquant un nouveau restaurant*/
+/*Positionnement en absolu
+Positionnement par rapport à la bordure droite
+Définition en tant que flexbox
+Centrage horizontal
+Largeur et hauteur
+Bordure
+Couleur de fond
+Couleur du texte*/
 .nouveau
 {
     
@@ -137,100 +368,11 @@ button
 
 }
 
-.fonctionnement
-{
-    @include flex_column;
-    gap:20px;
-    margin: auto;
-    width: 95%;
-    .bloc
-    {
-        gap:20px;
-        @include flex_column;
-        margin: auto;
-        width: 95%;
-        p
-        {
-            font-weight: 700;
-        }
-    }
-    &__choix
-    {
-        @include flex_center;
-        gap:10px;
-        height: 75px;
-        padding-left:10px;
-        background-color:lightgrey;
-        border:1px solid white;
-        border-radius:25px;
-        box-shadow:4px 4px 4px $couleur_tertiaire;
-        .fa-solid:hover
-        {
-            color: $couleur_primaire;
-        }
-    }
-    .choix
-    {
-        @include flex_row;
-        @include flex_center;
-        &__cercle
-        {
-            @include cercle;
-            position:relative;
-            left: -20px;
-        }
-    }
-}
-
-.selection 
-{
-    @include flex_column;
-    gap:30px;
-    background-color:lightgrey;
-    padding-bottom:50px;
-    h2
-    {
-        padding-left:20px
-    }
-    .restaurant
-    {
-       @include flex_column;
-       @include flex_center;
-       height: 300px;
-       background-color:white;
-       border-radius:25px;
-       width: 90%;
-       margin: auto;
-       &__link
-       {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-            .block
-            {
-                display: contents;
-            }
-        }
-    
-        &__texte
-        {
-            @include flex_row;
-            justify-content: space-around;
-            width: 100%;
-            height: 100px;
-            .texte
-            {
-                @include flex_column;
-            }
-            .icone
-            {
-                @include flex_column;
-                justify-content:center;
-            }
-        }
-    }
-}
-
+/*Photo du restaurant*/
+/*Largeur de la photo
+Hauteur de la photo
+Rayon de bordure en haut
+Centrage de la photo*/
 .photo 
 {
     width: 100%;
@@ -241,17 +383,19 @@ button
 }
 
 
-.texte
-{
-   @include flex_column;
-   justify-content: space-between;
-   padding-right:15px;
-}
-
+/*PIED DE PAGE*/
+/*Couleur de fond
+Hauteur du bloc*/
 .footer
 {
     background-color:black;
     height: 350px;
+    /*Logo du pied de page*/
+    /*Famille de police
+    Taille de police
+    Couleur de police
+    Marge interne à gauche
+    Marge interne en haut*/
     &__logo
     {
         font-family: Shrikhand;
@@ -260,16 +404,27 @@ button
         padding-left:40px;
         padding-top:40px;
     }
+    /*Liste des liens*/
+    /*Couleur du texte
+    Eléments en colonne
+    Pas de puce de liste*/
     &__list
     {
         color: white;
         @include flex_column;
         list-style: none;
+        /*Liens*/
+        /*Pas de soulignement des liens
+        Couleur du texte des liens*/
         a
         {
             text-decoration: none;
             color: white;
         }
+        /*Icone et texte*/
+        /*Eléments en ligne
+        Centrage vertical
+        Espacement vertical*/
         &__item
         {
             @include flex_row;
@@ -279,6 +434,10 @@ button
     }
 }
 
+/*PAGES DES RESTAURANTS*/
+/*Photo de menu*/
+/*Largeur et hauteur de la photo
+La photo prend tout l'espace*/
 .photo_menu 
 {
     width: 100%;
@@ -287,11 +446,21 @@ button
     overflow: hidden;
 }
 
+/*BLOC PHOTO ET MENU*/
+/*Positionnement relatif
+Couleur de fond
+Hauteur du bloc*/
 .restaurant
 {
     position:relative;
     background-color:lightgrey;
     height: 2100px;
+    /*En-tête du bloc*/
+    /*Eléments en ligne
+    Centrage vertical
+    Espacement des éléments
+    Rayon de bordure
+    Positionnement relatif*/
     &__header
     {
         @include flex_row;
@@ -301,12 +470,27 @@ button
         border-radius:25px 25px 0 0;
         position:relative;
         top: -70px;
+        /*Nom du restaurant*/
+        /*Famille de police
+        Taille de police*/
         &__titre
         {
             font-family: Shrikhand;
-            font-size: 3em;
+            font-size: 2em;
+        }
+        .fa-heart{
+            font-weight: 400;
+        }
+        .image{
+            width:50px;
+            height: 50px;
         }
     }
+    /*Menu proposé*/
+    /*Eléments en colonne
+    Couleur de fond
+    Espacement vertical des éléments
+    Positionnement relatif*/
     &__menu
     {
         @include flex_column;
@@ -315,38 +499,66 @@ button
         position:relative;
         top: -70px;
 
+        /*Eléments du menu*/
+        /*Eléments en colonne
+        Laugeur du bloc
+        Centrage horizontal automatique
+        Espacement vertical des éléments*/
         &__plats
         {
             @include flex_column;
             width: 90%;
             margin: auto;
             gap:30px;
+            /*Soulignement d'une partie du texte*/
             &__souligne
             {
                 border-bottom:2px solid $couleur_tertiaire;
             }
+            /*Bloc plat-prix*/
+            /*Eléments en ligne
+            Espacement horizontal
+            Couleur de fond
+            Hauteur et largeur du bloc
+            Rayon de bordure*/
             .unitaire
             {
             @include flex_row;
             justify-content: space-between;
             background-color:white;
             height: 100px;
-            width: 90%;
+            width: 100%;
             border-radius:25px;
+            /*Bloc des plats*/
+            /*Eléments en colonne*/
             &__1
             {
-                display: flex;
-                flex-direction: column;
+                @include flex_column;
+                /*Marge interne à gauche pour le titre et le texte
+                Marge haute et basse*/
                 h3,p
                 {
-                    padding-left:20px;
+                    padding-left:10px;
+                     margin-top:15px;
+                    margin-bottom: 15px;
                 }
+                p{
+                    text-overflow: "...";
+                    overflow: hidden;
+                }
+               
             }
+                /*Bloc de prix*/
+                /*Définition en tant que flexbox
+                Alignement du bloc
+                Marge interne à droite
+                Epaisseur de police*/
                 .prix
                 {
                     display: flex;
                     align-items: flex-end;
                     padding-right:20px;
+                    font-weight: 700;
                 }
                 
             }
