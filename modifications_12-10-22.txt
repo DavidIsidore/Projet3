@@ -1,0 +1,4 @@
+Ajout de commentaires dans le fichier main.scss
+Revue du code HTML: balise div fermée
+Revue du code HTML: balises section enlevée
+Ajout de margin top et bottom dans la classe unitaire_1
