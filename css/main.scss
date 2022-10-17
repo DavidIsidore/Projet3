@@ -5,7 +5,24 @@ $couleur_secondaire:#FF79DA;
 $couleur_tertiaire:#99E2D0;
 
 
-/*IMBRICATION DU NUMERO DANS LE CERCLE*/
+@keyframes coeur2{
+    0%{
+        transform:scale(0);
+        background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1.0);
+        background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        opacity: 1;
+    }
+}
+
+    /*IMBRICATION DU NUMERO DANS LE CERCLE*/
 /*Couleur de fond
 Couleur de la bordure
 Rayon de bordure
@@ -72,15 +89,22 @@ body
     &__logo
     {
         font-family: "Shrikhand";
-        font-size: 4em;
+        font-size: 3em;
         text-align: center;
+    }
+    &__link{
+        @include flex-row;
+        align-items:center;
+        gap:20px;
+        
     }
     /*Liens
     Positionement relatif*/
     a
     {
         position: relative;
-        top:65px;
+        text-decoration: none;
+        /*top:45px;*/
         left: 20px;
     }
     /*Liens visités
@@ -106,7 +130,7 @@ body
     justify-content: center;
     gap:20px;
     height: 50px;
-    background-color:grey;
+    background:linear-gradient(to bottom,grey,grey 1%,lightgrey 10%,lightgrey);
     /*Champ de saisie
     Couleur de fond
     Pas de boudure
@@ -114,7 +138,8 @@ body
     Taille de police*/
     input
     {
-        background-color:grey;
+        background-color:lightgrey;
+        color:black;
         border:none;
         width: 150px;
         font-size: 1.3em;
@@ -124,13 +149,15 @@ body
 /*PRESENTATION DE L'ENTREPRISE*/
 .presentation
 {
-    
+
     /*Centrage vertical
     Renvoi à la ligne
-    Centrage du texte*/
+    Centrage du texte
+    Marge interne en bas*/
     @include flex_column;
     flex-wrap: wrap;
     text-align: center;
+    padding-bottom:75px;
     /*Titre de la présentation
     Taille de police
     Marge interne*/
@@ -160,6 +187,7 @@ button
 {
     @include flex_center;
     justify-content: center;
+    cursor: pointer;
     margin: auto;
     height: 60px;
     width: 250px;
@@ -167,6 +195,11 @@ button
     font-size: 1.1em;
     border-radius:30px;
     background:linear-gradient(0deg,$couleur_secondaire,$couleur_secondaire 2%,$couleur_primaire);
+    
+}
+button:hover{
+    background:linear-gradient(0deg,lighten($couleur_secondaire,5),lighten($couleur_secondaire,5) 2%,lighten($couleur_primaire,5));
+    box-shadow:2px 2px 2px black;
 }
 
 
@@ -180,7 +213,11 @@ Largeur du bloc*/
     @include flex_column;
     gap:20px;
     margin: auto;
-    width: 95%;
+    width: 100%;
+    background-color:lighten($couleur_secondaire,18);
+    &__titre{
+        padding-left:20px;
+    }
     /*Bloc des instructions
     Espacement vertical
     Eléments en colonne
@@ -191,7 +228,7 @@ Largeur du bloc*/
         gap:20px;
         @include flex_column;
         margin: auto;
-        width: 95%;
+        width: 90%;
         /*Paragraphes
         Epaisseur de la police*/
         p
@@ -212,10 +249,13 @@ Largeur du bloc*/
         gap:10px;
         height: 75px;
         padding-left:10px;
-        background-color:lightgrey;
+        background-color:#D3D3D3FF;
         border:1px solid white;
         border-radius:25px;
         box-shadow:4px 4px 4px $couleur_tertiaire;
+        &:hover{
+            background-color:#D3D3D366;
+        }
         /*Icone
         Changement de couleur au survol de la souris*/
         .fa-solid:hover
@@ -273,7 +313,7 @@ Marge interne*/
     {
        @include flex_column;
        @include flex_center;
-       height: 300px;
+       height: 275px;
        background-color:white;
        border-radius:25px;
        width: 90%;
@@ -287,16 +327,16 @@ Marge interne*/
         display: flex;
         justify-content: center;
         width: 100%;
-            /*La photo prend tout l'espace*/
-            .block
-            {
-                display: contents;
-            }
+        /*La photo prend tout l'espace*/
+        .block
+        {
+            display: contents;
         }
+    }
 
 
     
-        /*Bloc de nom et d'emplacement du restaurant*/
+    /*Bloc de nom et d'emplacement du restaurant*/
         /*Eléments flex en ligne
         Espacement horizontal du texte
         Largeur et hauteur du bloc*/
@@ -315,6 +355,10 @@ Marge interne*/
                 @include flex_column;
                 justify-content: space-between;
                 padding-right:15px;
+                h3,p{
+                    margin-top:10px;
+                    margin-bottom: 10px;
+                }
             }
             /*Icone coeur*/
             /*Elément flex en colonne
@@ -323,24 +367,30 @@ Marge interne*/
             {
                 @include flex_column;
                 justify-content:center;
-                 .fa-regular:hover {
-  color: transparent;
-  opacity: 0;
-}
-.fa-solid {
-  color: transparent;
-  transition: ease-out all 400ms;
-}
- i:hover {
-  transform: scale(1.3);
-  background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  opacity: 1;
-}
-            }
-        }
-    }
+                .fa-regular{
+                    position:relative;
+                }
+                .fa-regular:hover {
+                    color: transparent;
+                    opacity: 0;
+                }
+                .fa-solid {
+                    color: transparent;
+                    position:absolute;
+                    transition: ease-out all 400ms;
+                    transform-origin: center;
+                }
+                .fa-solid:hover {
+                  /*transform: scale(1.0);
+                  background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
+                  background-clip: text;
+                  -webkit-background-clip: text;
+                  opacity: 1;*/
+                  animation: coeur2 2s linear forwards;
+              }
+          }
+      }
+  }
 }
 
 /*Pannonceau indiquant un nouveau restaurant*/
@@ -354,7 +404,7 @@ Couleur de fond
 Couleur du texte*/
 .nouveau
 {
-    
+
     position:absolute;
     right: 30px;
     display: flex;
@@ -389,7 +439,7 @@ Hauteur du bloc*/
 .footer
 {
     background-color:black;
-    height: 350px;
+    height: 250px;
     /*Logo du pied de page*/
     /*Famille de police
     Taille de police
@@ -430,6 +480,11 @@ Hauteur du bloc*/
             @include flex_row;
             align-items:center;
             gap:20px;
+
+        }
+        p{
+            margin-top: 5px;
+            margin-bottom: 5px;
         }
     }
 }
@@ -461,8 +516,7 @@ Hauteur du bloc*/
     Espacement des éléments
     Rayon de bordure
     Positionnement relatif*/
-    &__header
-    {
+    &__header {
         @include flex_row;
         @include flex_center;
         justify-content: space-around;
@@ -473,8 +527,7 @@ Hauteur du bloc*/
         /*Nom du restaurant*/
         /*Famille de police
         Taille de police*/
-        &__titre
-        {
+        &__titre  {
             font-family: Shrikhand;
             font-size: 2em;
         }
@@ -491,8 +544,7 @@ Hauteur du bloc*/
     Couleur de fond
     Espacement vertical des éléments
     Positionnement relatif*/
-    &__menu
-    {
+    &__menu {
         @include flex_column;
         background-color:lightgrey;
         gap:50px;
@@ -504,15 +556,13 @@ Hauteur du bloc*/
         Laugeur du bloc
         Centrage horizontal automatique
         Espacement vertical des éléments*/
-        &__plats
-        {
+        &__plats {
             @include flex_column;
             width: 90%;
             margin: auto;
             gap:30px;
             /*Soulignement d'une partie du texte*/
-            &__souligne
-            {
+            &__souligne {
                 border-bottom:2px solid $couleur_tertiaire;
             }
             /*Bloc plat-prix*/
@@ -521,50 +571,69 @@ Hauteur du bloc*/
             Couleur de fond
             Hauteur et largeur du bloc
             Rayon de bordure*/
-            .unitaire
-            {
-            @include flex_row;
-            justify-content: space-between;
-            background-color:white;
-            height: 100px;
-            width: 100%;
-            border-radius:25px;
-            /*Bloc des plats*/
-            /*Eléments en colonne*/
-            &__1
-            {
-                @include flex_column;
-                /*Marge interne à gauche pour le titre et le texte
-                Marge haute et basse*/
-                h3,p
-                {
-                    padding-left:10px;
-                     margin-top:15px;
-                    margin-bottom: 15px;
-                }
-                p{
-                    text-overflow: "...";
-                    overflow: hidden;
-                }
-               
-            }
-                /*Bloc de prix*/
-                /*Définition en tant que flexbox
-                Alignement du bloc
-                Marge interne à droite
-                Epaisseur de police*/
-                .prix
-                {
-                    display: flex;
-                    align-items: flex-end;
-                    padding-right:20px;
-                    font-weight: 700;
-                }
+            .unitaire {
+                @include flex_row;
+                justify-content: space-between;
+                background-color:white;
+                height: 100px;
+                width: 100%;
+                border-radius:25px;
+                /*Bloc des plats*/
+                /*Eléments en colonne*/
+                &__1 {
+                    @include flex_column;
+                    width: 85%;
+                    /*Marge interne à gauche pour le titre et le texte
+                    Marge haute et basse*/
+                    h3,p {
+                        padding-left:10px;
+                        margin-top:15px;
+                        margin-bottom: 15px;
+                    }
+                    p{
+                        text-overflow: "...";
+                        overflow: hidden;
+                    }
+                    .self{
+                        margin-top: -5px;;
+                    }
                 
-            }
-    
-        }
-    }
-}
+
+                } //fermeture 1
+            
+                    /*Bloc de prix*/
+                    /*Définition en tant que flexbox
+                    Alignement du bloc
+                    Marge interne à droite
+                    Epaisseur de police*/
+                    .prix {
+                        display: flex;
+                        align-items: flex-end;
+                        /*padding-right:20px;*/
+                        font-weight: 700;
+                        width: 15%;
+                    .check{
+                        @include flex-center;
+                        width: 30%;
+                        height: 100%;
+                        background-color: $couleur_tertiaire;
+                    }
+                        .fa-circle-check{
+                            /*color:$couleur_tertiaire;*/
+                        }
+                        &:hover{
+                            .unitaire__1{
+                                width: 65%;
+                            }
+                        }
+                    }
+                
+                }
+
+        } //fermeture plats
+    } //fermeture menu
+} //fermeture restaurant
+
+
 
 

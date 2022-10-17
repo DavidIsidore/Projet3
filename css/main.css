@@ -1,5 +1,18 @@
 @charset "UTF-8";
 /* DEFINITION DES COULEURS*/
+@keyframes coeur2 {
+  0% {
+    transform: scale(0);
+    background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    opacity: 1; }
+  100% {
+    transform: scale(1);
+    background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    opacity: 1; } }
 /*IMBRICATION DU NUMERO DANS LE CERCLE*/
 /*Couleur de fond
 Couleur de la bordure
@@ -36,11 +49,17 @@ body {
   Pas de soulignement*/ }
   .header__logo {
     font-family: "Shrikhand";
-    font-size: 4em;
+    font-size: 3em;
     text-align: center; }
+  .header__link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px; }
   .header a {
     position: relative;
-    top: 65px;
+    text-decoration: none;
+    /*top:45px;*/
     left: 20px; }
   .header a:visited {
     text-decoration: none;
@@ -58,14 +77,15 @@ body {
   justify-content: center;
   gap: 20px;
   height: 50px;
-  background-color: grey;
+  background: linear-gradient(to bottom, grey, grey 1%, lightgrey 10%, lightgrey);
   /*Champ de saisie
   Couleur de fond
   Pas de boudure
   Largeur du champ
   Taille de police*/ }
   .form input {
-    background-color: grey;
+    background-color: lightgrey;
+    color: black;
     border: none;
     width: 150px;
     font-size: 1.3em; }
@@ -74,11 +94,13 @@ body {
 .presentation {
   /*Centrage vertical
   Renvoi à la ligne
-  Centrage du texte*/
+  Centrage du texte
+  Marge interne en bas*/
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   text-align: center;
+  padding-bottom: 75px;
   /*Titre de la présentation
   Taille de police
   Marge interne*/
@@ -103,6 +125,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   margin: auto;
   height: 60px;
   width: 250px;
@@ -110,6 +133,10 @@ button {
   font-size: 1.1em;
   border-radius: 30px;
   background: linear-gradient(0deg, #FF79DA, #FF79DA 2%, #9356DC); }
+
+button:hover {
+  background: linear-gradient(0deg, #ff93e1, #ff93e1 2%, #a16be0);
+  box-shadow: 2px 2px 2px black; }
 
 /*BLOC DE DESCRIPTION DU FONCTIONNEMENT*/
 /*Eléments flex en colonne
@@ -121,7 +148,8 @@ Largeur du bloc*/
   flex-direction: column;
   gap: 20px;
   margin: auto;
-  width: 95%;
+  width: 100%;
+  background-color: #ffd5f3;
   /*Bloc des instructions
   Espacement vertical
   Eléments en colonne
@@ -137,12 +165,14 @@ Largeur du bloc*/
   /*Icone et texte*/
   /*Eléments flex en ligne
   Centrage vertical*/ }
+  .fonctionnement__titre {
+    padding-left: 20px; }
   .fonctionnement .bloc {
     gap: 20px;
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 95%;
+    width: 90%;
     /*Paragraphes
     Epaisseur de la police*/ }
     .fonctionnement .bloc p {
@@ -153,12 +183,14 @@ Largeur du bloc*/
     gap: 10px;
     height: 75px;
     padding-left: 10px;
-    background-color: lightgrey;
+    background-color: #D3D3D3FF;
     border: 1px solid white;
     border-radius: 25px;
     box-shadow: 4px 4px 4px #99E2D0;
     /*Icone
     Changement de couleur au survol de la souris*/ }
+    .fonctionnement__choix:hover {
+      background-color: #D3D3D366; }
     .fonctionnement__choix .fa-solid:hover {
       color: #9356DC; }
   .fonctionnement .choix {
@@ -211,7 +243,7 @@ Marge interne*/
     flex-direction: column;
     display: flex;
     align-items: center;
-    height: 300px;
+    height: 275px;
     background-color: white;
     border-radius: 25px;
     width: 90%;
@@ -249,22 +281,30 @@ Marge interne*/
         flex-direction: column;
         justify-content: space-between;
         padding-right: 15px; }
+        .selection .restaurant__texte .texte h3, .selection .restaurant__texte .texte p {
+          margin-top: 10px;
+          margin-bottom: 10px; }
       .selection .restaurant__texte .icone {
         display: flex;
         flex-direction: column;
         justify-content: center; }
+        .selection .restaurant__texte .icone .fa-regular {
+          position: relative; }
         .selection .restaurant__texte .icone .fa-regular:hover {
           color: transparent;
           opacity: 0; }
         .selection .restaurant__texte .icone .fa-solid {
           color: transparent;
-          transition: ease-out all 400ms; }
-        .selection .restaurant__texte .icone i:hover {
-          transform: scale(1.3);
+          position: absolute;
+          transition: ease-out all 400ms;
+          transform-origin: center; }
+        .selection .restaurant__texte .icone .fa-solid:hover {
+          /*transform: scale(1.0);
           background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
           background-clip: text;
           -webkit-background-clip: text;
-          opacity: 1; }
+          opacity: 1;*/
+          animation: coeur2 2s linear forwards; }
 
 /*Pannonceau indiquant un nouveau restaurant*/
 /*Positionnement en absolu
@@ -304,7 +344,7 @@ Centrage de la photo*/
 Hauteur du bloc*/
 .footer {
   background-color: black;
-  height: 350px;
+  height: 250px;
   /*Logo du pied de page*/
   /*Famille de police
   Taille de police
@@ -341,6 +381,9 @@ Hauteur du bloc*/
       flex-direction: row;
       align-items: center;
       gap: 20px; }
+    .footer__list p {
+      margin-top: 5px;
+      margin-bottom: 5px; }
 
 /*PAGES DES RESTAURANTS*/
 /*Photo de menu*/
@@ -437,6 +480,7 @@ Hauteur du bloc*/
         .restaurant__menu__plats .unitaire__1 {
           display: flex;
           flex-direction: column;
+          width: 85%;
           /*Marge interne à gauche pour le titre et le texte
           Marge haute et basse*/ }
           .restaurant__menu__plats .unitaire__1 h3, .restaurant__menu__plats .unitaire__1 p {
@@ -446,10 +490,23 @@ Hauteur du bloc*/
           .restaurant__menu__plats .unitaire__1 p {
             text-overflow: "...";
             overflow: hidden; }
+          .restaurant__menu__plats .unitaire__1 .self {
+            margin-top: -5px; }
         .restaurant__menu__plats .unitaire .prix {
           display: flex;
           align-items: flex-end;
-          padding-right: 20px;
-          font-weight: 700; }
+          /*padding-right:20px;*/
+          font-weight: 700;
+          width: 15%; }
+          .restaurant__menu__plats .unitaire .prix .check {
+            display: flex;
+            align-items: center;
+            width: 30%;
+            height: 100%;
+            background-color: #99E2D0; }
+          .restaurant__menu__plats .unitaire .prix .fa-circle-check {
+            /*color:$couleur_tertiaire;*/ }
+          .restaurant__menu__plats .unitaire .prix:hover .unitaire__1 {
+            width: 65%; }
 
 /*# sourceMappingURL=main.css.map */
