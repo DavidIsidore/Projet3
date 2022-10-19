@@ -4,6 +4,20 @@ $couleur_primaire:#9356DC;
 $couleur_secondaire:#FF79DA;
 $couleur_tertiaire:#99E2D0;
 
+$breakpoints:(tablette:768px,ordi:992px);
+
+@mixin tablette{
+    @media screen and (min-width: map-get($breakpoints,tablette)) and (max-width: map-get($breakpoints,ordi)){
+        @content;
+    }
+}
+
+@mixin ordi{
+    @media screen and (min-width:map-get($breakpoints, ordi)){
+        @content;
+    }
+}
+
 
 @keyframes coeur2{
     0%{
@@ -235,6 +249,12 @@ Largeur du bloc*/
         {
             font-weight: 700;
         }
+        @include tablette{
+            @include flex-row;
+        }
+        @include ordi{
+            @include flex-row;
+        }
     }
     /*Instruction de choix
     Centrage vertical
@@ -245,6 +265,12 @@ Largeur du bloc*/
     Ombre de la bordure*/
     &__choix
     {
+        @include tablette{
+        width:33%;
+       }
+       @include ordi{
+        width:33%;
+        }
         @include flex_center;
         gap:10px;
         height: 75px;
@@ -301,6 +327,21 @@ Marge interne*/
     {
         padding-left:20px
     }
+    
+    &__restaurants{
+        @include tablette{
+        @include flex-row;
+        flex-wrap:wrap;
+        row-gap:20px;
+    }
+        @include ordi{
+        @include flex-row;
+        flex-wrap:wrap;
+        row-gap:20px;
+    }
+        @include flex-column;
+        row-gap:20px;
+
     /*Bloc de sélection du restaurant*/
     /*Eléments flex en colonne
     Centrage vertical des éléments
@@ -309,88 +350,96 @@ Marge interne*/
     Rayon de bordure
     Largeur du bloc
     Centrage horizontal automatique*/
-    .restaurant
-    {
-       @include flex_column;
-       @include flex_center;
-       height: 275px;
-       background-color:white;
-       border-radius:25px;
-       width: 90%;
-       margin: auto;
-       /*Lien vers le restaurant*/
-       /*Définition des éléments en tant que flexbox
-       Centrage horizontal
-       Largeur du bloc*/
-       &__link
-       {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        /*La photo prend tout l'espace*/
-        .block
+        .restaurant
         {
-            display: contents;
-        }
-    }
+            @include tablette{
+        width:45%;
+       } 
 
-
-    
-    /*Bloc de nom et d'emplacement du restaurant*/
-        /*Eléments flex en ligne
-        Espacement horizontal du texte
-        Largeur et hauteur du bloc*/
-        &__texte
-        {
-            @include flex_row;
-            justify-content: space-around;
+       @include ordi{
+        width:20%;
+       }
+           @include flex_column;
+           @include flex_center;
+           height: 275px;
+           background-color:white;
+           border-radius:25px;
+           width: 90%;
+           margin: auto;
+           /*Lien vers le restaurant*/
+           /*Définition des éléments en tant que flexbox
+           Centrage horizontal
+           Largeur du bloc*/
+           &__link
+           {
+            display: flex;
+            justify-content: center;
             width: 100%;
-            height: 100px;
-            /*Nom du restaurant et emplacement*/
-            /*Eléments flex en colonne
-            Espacement des éléments
-            Marge interne à droite*/
-            .texte
+            /*La photo prend tout l'espace*/
+            .block
             {
-                @include flex_column;
-                justify-content: space-between;
-                padding-right:15px;
-                h3,p{
-                    margin-top:10px;
-                    margin-bottom: 10px;
-                }
+                display: contents;
             }
-            /*Icone coeur*/
-            /*Elément flex en colonne
-            Centrage vertical*/
-            .icone
+        }
+
+
+        
+        /*Bloc de nom et d'emplacement du restaurant*/
+            /*Eléments flex en ligne
+            Espacement horizontal du texte
+            Largeur et hauteur du bloc*/
+            &__texte
             {
-                @include flex_column;
-                justify-content:center;
-                .fa-regular{
-                    position:relative;
+                @include flex_row;
+                justify-content: space-around;
+                width: 100%;
+                height: 100px;
+                /*Nom du restaurant et emplacement*/
+                /*Eléments flex en colonne
+                Espacement des éléments
+                Marge interne à droite*/
+                .texte
+                {
+                    @include flex_column;
+                    justify-content: space-between;
+                    padding-right:15px;
+                    h3,p{
+                        margin-top:10px;
+                        margin-bottom: 10px;
+                    }
                 }
-                .fa-regular:hover {
-                    color: transparent;
-                    opacity: 0;
-                }
-                .fa-solid {
-                    color: transparent;
-                    position:absolute;
-                    transition: ease-out all 400ms;
-                    transform-origin: center;
-                }
-                .fa-solid:hover {
-                  /*transform: scale(1.0);
-                  background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
-                  background-clip: text;
-                  -webkit-background-clip: text;
-                  opacity: 1;*/
-                  animation: coeur2 2s linear forwards;
+                /*Icone coeur*/
+                /*Elément flex en colonne
+                Centrage vertical*/
+                .icone
+                {
+                    @include flex_column;
+                    justify-content:center;
+                    .fa-regular{
+                        position:relative;
+                    }
+                    .fa-regular:hover {
+                        color: transparent;
+                        opacity: 0;
+                    }
+                    .fa-solid {
+                        color: transparent;
+                        position:absolute;
+                        transition: ease-out all 400ms;
+                        transform-origin: center;
+                    }
+                    .fa-solid:hover {
+                      /*transform: scale(1.0);
+                      background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
+                      background-clip: text;
+                      -webkit-background-clip: text;
+                      opacity: 1;*/
+                      animation: coeur2 2s linear forwards;
+                  }
               }
           }
-      }
-  }
+     }
+    }
 }
 
 /*Pannonceau indiquant un nouveau restaurant*/
