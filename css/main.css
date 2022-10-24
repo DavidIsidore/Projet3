@@ -1,5 +1,36 @@
 @charset "UTF-8";
 /* DEFINITION DES COULEURS*/
+@keyframes loader {
+  0% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  99% {
+    opacity: 0;
+    z-index: 1000; }
+  100% {
+    opacity: 0; } }
+@keyframes body {
+  0% {
+    opacity: 0%; }
+  100% {
+    opacity: 100%; } }
+@keyframes textclip {
+  to {
+    background-position: 200% center; } }
+@keyframes nom {
+  0% {
+    width: 80%; }
+  100% {
+    width: 60%;
+    text-overflow: ellipsis "...";
+    overflow: hidden;
+    white-space: nowrap; } }
+@keyframes check {
+  0% {
+    width: 0%; }
+  100% {
+    width: 20%; } }
 @keyframes coeur2 {
   0% {
     transform: scale(0);
@@ -31,7 +62,8 @@ Centrage automatique*/
 body {
   font-family: "Roboto";
   width: 100%;
-  margin: auto; }
+  margin: auto;
+  animation: body 0.25s cubic-bezier(1, 0.01, 0.58, 1) forwards; }
 
 /*EN-TETE DE LA PAGE*/
 .header {
@@ -64,6 +96,43 @@ body {
   .header a:visited {
     text-decoration: none;
     color: black; }
+
+.loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  background-color: white;
+  animation-name: loader;
+  animation-delay: -875ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-duration: 3s; }
+  .loader__icon {
+    margin: auto; }
+    .loader__icon .animate {
+      font-family: "Shrikhand";
+      font-size: 3em;
+      text-align: center;
+      background-image: linear-gradient(-225deg, #9356DC 33%, #FF79DA 66%, #99E2D0 100%);
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /*animation-name: textclip;
+      animation-duration: 0.5s;
+      animation-delay:0s;
+      animation-timing-function: linear;
+      animation-iteration-count:3;*/
+      animation: textclip 0.5s 0s 3 linear;
+      display: inline-block;
+      font-size: 2em; }
+      .loader__icon .animate .animate span {
+        animation: textclip 0.5s 3; }
 
 /*FORMULAIRE*/
 .form {
@@ -177,6 +246,14 @@ Largeur du bloc*/
     Epaisseur de la police*/ }
     .fonctionnement .bloc p {
       font-weight: 700; }
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      .fonctionnement .bloc {
+        display: flex;
+        flex-direction: row; } }
+    @media screen and (min-width: 992px) {
+      .fonctionnement .bloc {
+        display: flex;
+        flex-direction: row; } }
   .fonctionnement__choix {
     display: flex;
     align-items: center;
@@ -189,6 +266,12 @@ Largeur du bloc*/
     box-shadow: 4px 4px 4px #99E2D0;
     /*Icone
     Changement de couleur au survol de la souris*/ }
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      .fonctionnement__choix {
+        width: 33%; } }
+    @media screen and (min-width: 992px) {
+      .fonctionnement__choix {
+        width: 33%; } }
     .fonctionnement__choix:hover {
       background-color: #D3D3D366; }
     .fonctionnement__choix .fa-solid:hover {
@@ -227,84 +310,104 @@ Marge interne*/
   background-color: lightgrey;
   padding-bottom: 50px;
   /*Sous-titre de la section*/
-  /*Marge interne à gauche*/
-  /*Bloc de sélection du restaurant*/
-  /*Eléments flex en colonne
-  Centrage vertical des éléments
-  Hauteur du bloc
-  Coueur de fond
-  Rayon de bordure
-  Largeur du bloc
-  Centrage horizontal automatique*/ }
+  /*Marge interne à gauche*/ }
   .selection h2 {
     padding-left: 20px; }
-  .selection .restaurant {
+  .selection__restaurants {
     display: flex;
     flex-direction: column;
-    display: flex;
-    align-items: center;
-    height: 275px;
-    background-color: white;
-    border-radius: 25px;
-    width: 90%;
-    margin: auto;
-    /*Lien vers le restaurant*/
-    /*Définition des éléments en tant que flexbox
-    Centrage horizontal
-    Largeur du bloc*/
-    /*Bloc de nom et d'emplacement du restaurant*/
-    /*Eléments flex en ligne
-    Espacement horizontal du texte
-    Largeur et hauteur du bloc*/ }
-    .selection .restaurant__link {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      /*La photo prend tout l'espace*/ }
-      .selection .restaurant__link .block {
-        display: contents; }
-    .selection .restaurant__texte {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      width: 100%;
-      height: 100px;
-      /*Nom du restaurant et emplacement*/
-      /*Eléments flex en colonne
-      Espacement des éléments
-      Marge interne à droite*/
-      /*Icone coeur*/
-      /*Elément flex en colonne
-      Centrage vertical*/ }
-      .selection .restaurant__texte .texte {
+    row-gap: 20px;
+    /*Bloc de sélection du restaurant*/
+    /*Eléments flex en colonne
+    Centrage vertical des éléments
+    Hauteur du bloc
+    Coueur de fond
+    Rayon de bordure
+    Largeur du bloc
+    Centrage horizontal automatique*/ }
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      .selection__restaurants {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-right: 15px; }
-        .selection .restaurant__texte .texte h3, .selection .restaurant__texte .texte p {
-          margin-top: 10px;
-          margin-bottom: 10px; }
-      .selection .restaurant__texte .icone {
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 20px; } }
+    @media screen and (min-width: 992px) {
+      .selection__restaurants {
         display: flex;
-        flex-direction: column;
-        justify-content: center; }
-        .selection .restaurant__texte .icone .fa-regular {
-          position: relative; }
-        .selection .restaurant__texte .icone .fa-regular:hover {
-          color: transparent;
-          opacity: 0; }
-        .selection .restaurant__texte .icone .fa-solid {
-          color: transparent;
-          position: absolute;
-          transition: ease-out all 400ms;
-          transform-origin: center; }
-        .selection .restaurant__texte .icone .fa-solid:hover {
-          /*transform: scale(1.0);
-          background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
-          background-clip: text;
-          -webkit-background-clip: text;
-          opacity: 1;*/
-          animation: coeur2 2s linear forwards; }
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 20px; } }
+    .selection__restaurants .restaurant {
+      display: flex;
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+      height: 275px;
+      background-color: white;
+      border-radius: 25px;
+      width: 90%;
+      margin: auto;
+      /*Lien vers le restaurant*/
+      /*Définition des éléments en tant que flexbox
+      Centrage horizontal
+      Largeur du bloc*/
+      /*Bloc de nom et d'emplacement du restaurant*/
+      /*Eléments flex en ligne
+      Espacement horizontal du texte
+      Largeur et hauteur du bloc*/ }
+      @media screen and (min-width: 768px) and (max-width: 992px) {
+        .selection__restaurants .restaurant {
+          width: 45%; } }
+      @media screen and (min-width: 992px) {
+        .selection__restaurants .restaurant {
+          width: 23%; } }
+      .selection__restaurants .restaurant__link {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        /*La photo prend tout l'espace*/ }
+        .selection__restaurants .restaurant__link .block {
+          display: contents; }
+      .selection__restaurants .restaurant__texte {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        height: 100px;
+        /*Nom du restaurant et emplacement*/
+        /*Eléments flex en colonne
+        Espacement des éléments
+        Marge interne à droite*/
+        /*Icone coeur*/
+        /*Elément flex en colonne
+        Centrage vertical*/ }
+        .selection__restaurants .restaurant__texte .texte {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding-right: 15px; }
+          .selection__restaurants .restaurant__texte .texte h3, .selection__restaurants .restaurant__texte .texte p {
+            margin-top: 10px;
+            margin-bottom: 10px; }
+        .selection__restaurants .restaurant__texte .icone {
+          display: flex;
+          flex-direction: column;
+          justify-content: center; }
+          .selection__restaurants .restaurant__texte .icone .fa-regular {
+            position: relative; }
+          .selection__restaurants .restaurant__texte .icone .fa-regular:hover {
+            color: transparent;
+            opacity: 0; }
+          .selection__restaurants .restaurant__texte .icone .fa-solid {
+            color: transparent;
+            position: absolute; }
+          .selection__restaurants .restaurant__texte .icone .fa-solid:hover {
+            /*transform: scale(1.0);
+            background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            opacity: 1;*/
+            animation: coeur2 2s linear forwards; }
 
 /*Pannonceau indiquant un nouveau restaurant*/
 /*Positionnement en absolu
@@ -466,47 +569,65 @@ Hauteur du bloc*/
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background-color: white;
+        align-items: center;
+        background-color: yellow;
         height: 100px;
         width: 100%;
         border-radius: 25px;
         /*Bloc des plats*/
-        /*Eléments en colonne*/
-        /*Bloc de prix*/
-        /*Définition en tant que flexbox
-        Alignement du bloc
-        Marge interne à droite
-        Epaisseur de police*/ }
-        .restaurant__menu__plats .unitaire__1 {
+        /*Eléments en colonne*/ }
+        .restaurant__menu__plats .unitaire__nom {
+          width: 80%;
           display: flex;
           flex-direction: column;
-          width: 85%;
           /*Marge interne à gauche pour le titre et le texte
-          Marge haute et basse*/ }
-          .restaurant__menu__plats .unitaire__1 h3, .restaurant__menu__plats .unitaire__1 p {
+          Marge haute et basse*/
+          /*p{
+              text-overflow: ellipsis "...";
+              overflow: hidden;
+          }*/
+          /*&:hover{
+              width: 60%;
+              text-overflow: ellipsis "...";
+              overflow: hidden;
+              white-space: nowrap;
+          }*/ }
+          .restaurant__menu__plats .unitaire__nom:hover {
+            animation: nom 1s linear forwards; }
+          .restaurant__menu__plats .unitaire__nom h3, .restaurant__menu__plats .unitaire__nom p {
             padding-left: 10px;
             margin-top: 15px;
             margin-bottom: 15px; }
-          .restaurant__menu__plats .unitaire__1 p {
-            text-overflow: "...";
-            overflow: hidden; }
-          .restaurant__menu__plats .unitaire__1 .self {
+          .restaurant__menu__plats .unitaire__nom .self {
             margin-top: -5px; }
-        .restaurant__menu__plats .unitaire .prix {
+        .restaurant__menu__plats .unitaire__prix {
+          width: 20%;
+          height: 100%;
           display: flex;
+          flex-direction: row;
+          background-color: red;
+          justify-content: center;
           align-items: flex-end;
-          /*padding-right:20px;*/
           font-weight: 700;
-          width: 15%; }
-          .restaurant__menu__plats .unitaire .prix .check {
-            display: flex;
-            align-items: center;
-            width: 30%;
-            height: 100%;
-            background-color: #99E2D0; }
-          .restaurant__menu__plats .unitaire .prix .fa-circle-check {
-            /*color:$couleur_tertiaire;*/ }
-          .restaurant__menu__plats .unitaire .prix:hover .unitaire__1 {
-            width: 65%; }
+          /*&+ .unitaire__check{
+              //transition: transform all 1s;
+              &:hover{
+                  //transform: translateX(-10px);
+                  animation:check 1s linear forwards;
+              }
+          }*/ }
+        .restaurant__menu__plats .unitaire__check {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          justify-content: center;
+          background-color: #99E2D0;
+          color: white;
+          overflow: hidden;
+          width: calc(20% - 20%);
+          height: 100%;
+          border-radius: 0 25px 25px 0; }
+          .restaurant__menu__plats .unitaire__check i {
+            transform: rotate(180deg); }
 
 /*# sourceMappingURL=main.css.map */
