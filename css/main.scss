@@ -18,6 +18,7 @@ $breakpoints:(tablette:768px,ordi:992px);
     }
 }
 
+<<<<<<< HEAD
 @keyframes loader{
     0%{
         opacity: 1;
@@ -77,6 +78,8 @@ $breakpoints:(tablette:768px,ordi:992px);
     }
 }
 
+=======
+>>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
 
 @keyframes coeur2{
     0%{
@@ -462,7 +465,11 @@ Marge interne*/
        } 
 
        @include ordi{
+<<<<<<< HEAD
         width:23%;
+=======
+        width:20%;
+>>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
        }
            @include flex_column;
            @include flex_center;
@@ -530,8 +537,13 @@ Marge interne*/
                     .fa-solid {
                         color: transparent;
                         position:absolute;
+<<<<<<< HEAD
                         //transition: ease-out all 400ms;
                         //transform-origin: center;
+=======
+                        transition: ease-out all 400ms;
+                        transform-origin: center;
+>>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
                     }
                     .fa-solid:hover {
                       /*transform: scale(1.0);
