@@ -1,5 +1,36 @@
 @charset "UTF-8";
 /* DEFINITION DES COULEURS*/
+@keyframes loader {
+  0% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  99% {
+    opacity: 0;
+    z-index: 1000; }
+  100% {
+    opacity: 0; } }
+@keyframes body {
+  0% {
+    opacity: 0%; }
+  100% {
+    opacity: 100%; } }
+@keyframes textclip {
+  to {
+    background-position: 200% center; } }
+@keyframes nom {
+  0% {
+    width: 80%; }
+  100% {
+    width: 60%;
+    text-overflow: ellipsis "...";
+    overflow: hidden;
+    white-space: nowrap; } }
+@keyframes check {
+  0% {
+    width: 0%; }
+  100% {
+    width: 20%; } }
 @keyframes coeur2 {
   0% {
     transform: scale(0);
@@ -31,7 +62,8 @@ Centrage automatique*/
 body {
   font-family: "Roboto";
   width: 100%;
-  margin: auto; }
+  margin: auto;
+  animation: body 0.25s cubic-bezier(1, 0.01, 0.58, 1) forwards; }
 
 /*EN-TETE DE LA PAGE*/
 .header {
@@ -64,6 +96,43 @@ body {
   .header a:visited {
     text-decoration: none;
     color: black; }
+
+.loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  background-color: white;
+  animation-name: loader;
+  animation-delay: -875ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-duration: 3s; }
+  .loader__icon {
+    margin: auto; }
+    .loader__icon .animate {
+      font-family: "Shrikhand";
+      font-size: 3em;
+      text-align: center;
+      background-image: linear-gradient(-225deg, #9356DC 33%, #FF79DA 66%, #99E2D0 100%);
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /*animation-name: textclip;
+      animation-duration: 0.5s;
+      animation-delay:0s;
+      animation-timing-function: linear;
+      animation-iteration-count:3;*/
+      animation: textclip 0.5s 0s 3 linear;
+      display: inline-block;
+      font-size: 2em; }
+      .loader__icon .animate .animate span {
+        animation: textclip 0.5s 3; }
 
 /*FORMULAIRE*/
 .form {
@@ -291,7 +360,15 @@ Marge interne*/
           width: 45%; } }
       @media screen and (min-width: 992px) {
         .selection__restaurants .restaurant {
+<<<<<<< HEAD
+<<<<<<< HEAD
+          width: 23%; } }
+=======
           width: 20%; } }
+>>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
+=======
+          width: 20%; } }
+>>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
       .selection__restaurants .restaurant__link {
         display: flex;
         justify-content: center;
@@ -331,9 +408,19 @@ Marge interne*/
             opacity: 0; }
           .selection__restaurants .restaurant__texte .icone .fa-solid {
             color: transparent;
+<<<<<<< HEAD
+<<<<<<< HEAD
+            position: absolute; }
+=======
             position: absolute;
             transition: ease-out all 400ms;
             transform-origin: center; }
+>>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
+=======
+            position: absolute;
+            transition: ease-out all 400ms;
+            transform-origin: center; }
+>>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
           .selection__restaurants .restaurant__texte .icone .fa-solid:hover {
             /*transform: scale(1.0);
             background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
@@ -502,47 +589,65 @@ Hauteur du bloc*/
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background-color: white;
+        align-items: center;
+        background-color: yellow;
         height: 100px;
         width: 100%;
         border-radius: 25px;
         /*Bloc des plats*/
-        /*Eléments en colonne*/
-        /*Bloc de prix*/
-        /*Définition en tant que flexbox
-        Alignement du bloc
-        Marge interne à droite
-        Epaisseur de police*/ }
-        .restaurant__menu__plats .unitaire__1 {
+        /*Eléments en colonne*/ }
+        .restaurant__menu__plats .unitaire__nom {
+          width: 80%;
           display: flex;
           flex-direction: column;
-          width: 85%;
           /*Marge interne à gauche pour le titre et le texte
-          Marge haute et basse*/ }
-          .restaurant__menu__plats .unitaire__1 h3, .restaurant__menu__plats .unitaire__1 p {
+          Marge haute et basse*/
+          /*p{
+              text-overflow: ellipsis "...";
+              overflow: hidden;
+          }*/
+          /*&:hover{
+              width: 60%;
+              text-overflow: ellipsis "...";
+              overflow: hidden;
+              white-space: nowrap;
+          }*/ }
+          .restaurant__menu__plats .unitaire__nom:hover {
+            animation: nom 1s linear forwards; }
+          .restaurant__menu__plats .unitaire__nom h3, .restaurant__menu__plats .unitaire__nom p {
             padding-left: 10px;
             margin-top: 15px;
             margin-bottom: 15px; }
-          .restaurant__menu__plats .unitaire__1 p {
-            text-overflow: "...";
-            overflow: hidden; }
-          .restaurant__menu__plats .unitaire__1 .self {
+          .restaurant__menu__plats .unitaire__nom .self {
             margin-top: -5px; }
-        .restaurant__menu__plats .unitaire .prix {
+        .restaurant__menu__plats .unitaire__prix {
+          width: 20%;
+          height: 100%;
           display: flex;
+          flex-direction: row;
+          background-color: red;
+          justify-content: center;
           align-items: flex-end;
-          /*padding-right:20px;*/
           font-weight: 700;
-          width: 15%; }
-          .restaurant__menu__plats .unitaire .prix .check {
-            display: flex;
-            align-items: center;
-            width: 30%;
-            height: 100%;
-            background-color: #99E2D0; }
-          .restaurant__menu__plats .unitaire .prix .fa-circle-check {
-            /*color:$couleur_tertiaire;*/ }
-          .restaurant__menu__plats .unitaire .prix:hover .unitaire__1 {
-            width: 65%; }
+          /*&+ .unitaire__check{
+              //transition: transform all 1s;
+              &:hover{
+                  //transform: translateX(-10px);
+                  animation:check 1s linear forwards;
+              }
+          }*/ }
+        .restaurant__menu__plats .unitaire__check {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          justify-content: center;
+          background-color: #99E2D0;
+          color: white;
+          overflow: hidden;
+          width: calc(20% - 20%);
+          height: 100%;
+          border-radius: 0 25px 25px 0; }
+          .restaurant__menu__plats .unitaire__check i {
+            transform: rotate(180deg); }
 
 /*# sourceMappingURL=main.css.map */
