@@ -18,7 +18,6 @@ $breakpoints:(tablette:768px,ordi:992px);
     }
 }
 
-<<<<<<< HEAD
 @keyframes loader{
     0%{
         opacity: 1;
@@ -34,6 +33,7 @@ $breakpoints:(tablette:768px,ordi:992px);
     }
     100%{
         opacity: 0;
+        z-index: -1000;
     }
 }
 
@@ -49,7 +49,7 @@ $breakpoints:(tablette:768px,ordi:992px);
 @keyframes textclip {
   to {
     background-position: 200% center;
-  }
+}
 }
 
 @keyframes nom{
@@ -62,6 +62,19 @@ $breakpoints:(tablette:768px,ordi:992px);
         overflow: hidden;
         white-space: nowrap;
     }
+}
+
+@keyframes rotate {
+  0% {transform: rotate(180deg);}
+  100% {transform: rotate(0deg);}
+}
+@keyframes test3 {
+  0% {width: 0;}
+  100% {width: 80px;}
+}
+@keyframes test4 {
+  0% {width: 100%;}
+  100% {width: calc(100% - 80px);}
 }
 
 @keyframes prix{
@@ -78,8 +91,6 @@ $breakpoints:(tablette:768px,ordi:992px);
     }
 }
 
-=======
->>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
 
 @keyframes coeur2{
     0%{
@@ -98,7 +109,7 @@ $breakpoints:(tablette:768px,ordi:992px);
     }
 }
 
-    /*IMBRICATION DU NUMERO DANS LE CERCLE*/
+/*IMBRICATION DU NUMERO DANS LE CERCLE*/
 /*Couleur de fond
 Couleur de la bordure
 Rayon de bordure
@@ -374,10 +385,10 @@ Largeur du bloc*/
     &__choix
     {
         @include tablette{
-        width:33%;
-       }
-       @include ordi{
-        width:33%;
+            width:33%;
+        }
+        @include ordi{
+            width:33%;
         }
         @include flex_center;
         gap:10px;
@@ -438,19 +449,19 @@ Marge interne*/
     
     &__restaurants{
         @include tablette{
-        @include flex-row;
-        flex-wrap:wrap;
-        row-gap:20px;
-    }
+            @include flex-row;
+            flex-wrap:wrap;
+            row-gap:20px;
+        }
         @include ordi{
-        @include flex-row;
-        flex-wrap:wrap;
-        row-gap:20px;
-    }
+            @include flex-row;
+            flex-wrap:wrap;
+            row-gap:20px;
+        }
         @include flex-column;
         row-gap:20px;
 
-    /*Bloc de sélection du restaurant*/
+        /*Bloc de sélection du restaurant*/
     /*Eléments flex en colonne
     Centrage vertical des éléments
     Hauteur du bloc
@@ -458,21 +469,19 @@ Marge interne*/
     Rayon de bordure
     Largeur du bloc
     Centrage horizontal automatique*/
-        .restaurant
-        {
-            @include tablette{
-        width:45%;
-       } 
+    .restaurant
+    {
+        @include tablette{
+            width:45%;
+        } 
 
-       @include ordi{
-<<<<<<< HEAD
-        width:23%;
-=======
-        width:20%;
->>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
-       }
-           @include flex_column;
-           @include flex_center;
+        @include ordi{
+
+            width:23%;
+
+        }
+        @include flex_column;
+           //@include flex_center;
            height: 275px;
            background-color:white;
            border-radius:25px;
@@ -537,13 +546,12 @@ Marge interne*/
                     .fa-solid {
                         color: transparent;
                         position:absolute;
-<<<<<<< HEAD
                         //transition: ease-out all 400ms;
                         //transform-origin: center;
-=======
                         transition: ease-out all 400ms;
                         transform-origin: center;
->>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
+                        transition: ease-out all 400ms;
+                        transform-origin: center;
                     }
                     .fa-solid:hover {
                       /*transform: scale(1.0);
@@ -555,8 +563,8 @@ Marge interne*/
                   }
               }
           }
-     }
-    }
+      }
+  }
 }
 
 /*Pannonceau indiquant un nouveau restaurant*/
@@ -737,87 +745,79 @@ Hauteur du bloc*/
             Couleur de fond
             Hauteur et largeur du bloc
             Rayon de bordure*/
-            .unitaire {
-                @include flex_row;
-                justify-content: space-between;
-                align-items:center;
-                background-color:yellow;
-                height: 100px;
+            .unitaire{
                 width: 100%;
-                border-radius:25px;
-                /*Bloc des plats*/
-                /*Eléments en colonne*/
-                &__nom {
-                    width: 80%;
-                    @include flex_column;
-                    &:hover{
-                        animation:nom 1s linear forwards;
-                    }
-                    //width: 100%;
-                    /*Marge interne à gauche pour le titre et le texte
-                    Marge haute et basse*/
-                    h3,p {
-                        padding-left:10px;
-                        margin-top:15px;
-                        margin-bottom: 15px;
-                        &:hover{
-                            //animation: nom 1s linear forwards;;
-                        }
-                    }
-                    /*p{
-                        text-overflow: ellipsis "...";
-                        overflow: hidden;
-                    }*/
-                    .self{
-                        margin-top: -5px;;
-                    }
+                height: 80px;
+                display: flex;
+                flex-direction: row;
+                border: 1px solid black;
+                overflow: hidden;
+                border-radius: 25px;
+
+                &__box{
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%; 
                     /*&:hover{
-                        width: 60%;
                         text-overflow: ellipsis "...";
                         overflow: hidden;
                         white-space: nowrap;
                     }*/
-                }
-                &__prix{
-                    width: 20%;
-                    height: 100%;
-                    @include flex-row;
-                    background-color:red;
-                    justify-content: center;
-                    align-items:flex-end;
-                    font-weight: 700;
-                    /*&+ .unitaire__check{
-                        //transition: transform all 1s;
-                        &:hover{
-                            //transform: translateX(-10px);
-                            animation:check 1s linear forwards;
+                    &__nom{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        width: calc(100% - 80px);
+                        p{
+                            margin-top:0;
                         }
-                    }*/
-                }
-                &__check{
-                    @include flex_center;
-                    height: 100%;
-                    justify-content: center;
-                    background-color:$couleur_tertiaire;
-                    color:white;
-                    overflow: hidden;
-                    width: calc(20% - 20%);
-                    height: 100%;
-                    border-radius:0 25px 25px 0;
-                    //transform:translateX(-10px);
-                    //animation:check 1s linear forwards;
-
-                    i{
-                        transform: rotate(180deg);
-                    }
-                    }
+                        h3{
+                            margin-bottom: 0;
+                        }
+                        h3,p {
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            white-space: nowrap;
+                        }
+            /*h3,p:hover{
+                text-overflow: ellipsis "...";
+                overflow: hidden;
+                white-space: nowrap;
+                }*/
 
             }
+            &__prix{
+                display: flex;
+                align-items: flex-end;
+                justify-content: end;
+                width: 80px;
+                font-weight: 700; 
+                padding: 0 25px;
+            }
+        }
+        &__check{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #99e2d0;
+            width: 0%;
+            color: white;
+        }
+
+    }
 
         } //fermeture plats
     } //fermeture menu
 } //fermeture restaurant
 
-
+.unitaire:hover .unitaire__check {
+  animation: test3 1s linear forwards;
+}
+.unitaire:hover .unitaire__box {
+  animation: test4 1s linear forwards;
+}
+.unitaire:hover .unitaire__check .fa-solid {
+  animation: rotate 1s linear forwards;
+}
 
 
