@@ -1,0 +1,2 @@
+Ajout de padding bottom pour le sélecteur .fonctionnement
+Implémentation de l'animation d'apparition progressive des menus
