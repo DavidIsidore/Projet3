@@ -1,0 +1,2 @@
+Implémentation de l'animation check des menus
+Modification des pages delice.html, francaise.html, note.html et palette.html
