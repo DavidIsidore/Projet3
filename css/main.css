@@ -12,9 +12,8 @@
 <<<<<<< HEAD
     opacity: 0;
     z-index: -1000; } }
-=======
+
     opacity: 0; } }
->>>>>>> 6c24b0be34990204720c588b3464a96d7a42965e
 @keyframes body {
   0% {
     opacity: 0%; }
@@ -31,7 +30,7 @@
     text-overflow: ellipsis "...";
     overflow: hidden;
     white-space: nowrap; } }
-<<<<<<< HEAD
+
 @keyframes rotate {
   0% {
     transform: rotate(180deg); }
@@ -47,8 +46,7 @@
     width: 100%; }
   100% {
     width: calc(100% - 80px); } }
-=======
->>>>>>> 6c24b0be34990204720c588b3464a96d7a42965e
+
 @keyframes check {
   0% {
     width: 0%; }
@@ -381,19 +379,9 @@ Marge interne*/
           width: 45%; } }
       @media screen and (min-width: 992px) {
         .selection__restaurants .restaurant {
-<<<<<<< HEAD
+
           width: 23%; } }
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-          width: 23%; } }
-=======
-          width: 20%; } }
->>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
-=======
-          width: 20%; } }
->>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
->>>>>>> 6c24b0be34990204720c588b3464a96d7a42965e
+
       .selection__restaurants .restaurant__link {
         display: flex;
         justify-content: center;
@@ -433,21 +421,15 @@ Marge interne*/
             opacity: 0; }
           .selection__restaurants .restaurant__texte .icone .fa-solid {
             color: transparent;
-<<<<<<< HEAD
-<<<<<<< HEAD
-            position: absolute; }
-=======
+
+            
             position: absolute;
             transition: ease-out all 400ms;
             transform-origin: center;
             transition: ease-out all 400ms;
             transform-origin: center; }
->>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
-=======
-            position: absolute;
-            transition: ease-out all 400ms;
-            transform-origin: center; }
->>>>>>> d5b5d183dd8e93a5dc849b42eed391759d6c78a2
+
+            
           .selection__restaurants .restaurant__texte .icone .fa-solid:hover {
             /*transform: scale(1.0);
             background-image: linear-gradient(163deg, #ee73da 0%, #a05bdc 100%);
@@ -617,7 +599,6 @@ Hauteur du bloc*/
         height: 80px;
         display: flex;
         flex-direction: row;
-<<<<<<< HEAD
         border: 1px solid black;
         overflow: hidden;
         border-radius: 25px; }
@@ -626,7 +607,6 @@ Hauteur du bloc*/
           flex-direction: row;
           width: 100%;
           /*&:hover{
-=======
         justify-content: space-between;
         align-items: center;
         background-color: yellow;
@@ -647,12 +627,10 @@ Hauteur du bloc*/
           }*/
           /*&:hover{
               width: 60%;
->>>>>>> 6c24b0be34990204720c588b3464a96d7a42965e
               text-overflow: ellipsis "...";
               overflow: hidden;
               white-space: nowrap;
           }*/ }
-<<<<<<< HEAD
           .restaurant__menu__plats .unitaire__box__nom {
             display: flex;
             flex-direction: column;
@@ -732,6 +710,5 @@ Hauteur du bloc*/
           border-radius: 0 25px 25px 0; }
           .restaurant__menu__plats .unitaire__check i {
             transform: rotate(180deg); }
->>>>>>> 6c24b0be34990204720c588b3464a96d7a42965e
 
 /*# sourceMappingURL=main.css.map */
