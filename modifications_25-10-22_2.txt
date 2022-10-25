@@ -1,0 +1,2 @@
+Implémentation de l'animation check
+Modification des fichiers html
