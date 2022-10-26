@@ -1,5 +1,30 @@
 @charset "UTF-8";
 /* DEFINITION DES COULEURS*/
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  20% {
+    opacity: 0.1; }
+  40% {
+    opacity: 0.3; }
+  50% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.45; }
+  70% {
+    opacity: 0.5; }
+  72% {
+    opacity: 0.6; }
+  75% {
+    opacity: 0.65; }
+  80% {
+    opacity: 0.7; }
+  85% {
+    opacity: 0.8; }
+  90% {
+    opacity: 0.9; }
+  100% {
+    opacity: 1; } }
 @keyframes loader {
   0% {
     opacity: 1; }
@@ -234,6 +259,7 @@ Largeur du bloc*/
   gap: 20px;
   margin: auto;
   width: 100%;
+  padding-bottom: 50px;
   background-color: #ffd5f3;
   /*Bloc des instructions
   Espacement vertical
@@ -574,6 +600,7 @@ Hauteur du bloc*/
       width: 90%;
       margin: auto;
       gap: 30px;
+      animation: fade-in 1s ease-in-out;
       /*Soulignement d'une partie du texte*/
       /*Bloc plat-prix*/
       /*Eléments en ligne
@@ -590,7 +617,8 @@ Hauteur du bloc*/
         flex-direction: row;
         border: 1px solid black;
         overflow: hidden;
-        border-radius: 25px; }
+        border-radius: 25px;
+        animation: fade-in 3s ease-in-out; }
         .restaurant__menu__plats .unitaire__box {
           display: flex;
           flex-direction: row;
@@ -627,6 +655,7 @@ Hauteur du bloc*/
             padding: 0 25px; }
         .restaurant__menu__plats .unitaire__check {
           display: flex;
+          overflow: hidden;
           align-items: center;
           justify-content: center;
           background-color: #99e2d0;
