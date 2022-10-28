@@ -442,8 +442,6 @@ Marge interne*/
             color: transparent;
             position: absolute;
             transition: ease-out all 400ms;
-            transform-origin: center;
-            transition: ease-out all 400ms;
             transform-origin: center; }
           .selection__restaurants .restaurant__texte .icone .fa-solid:hover {
             /*transform: scale(1.0);
