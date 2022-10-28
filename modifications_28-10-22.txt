@@ -1,0 +1,1 @@
+Implémentation de l'animation d'apparition progressive du menu
