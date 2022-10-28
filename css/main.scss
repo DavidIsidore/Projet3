@@ -18,6 +18,18 @@ $breakpoints:(tablette:768px,ordi:992px);
     }
 }
 
+@keyframes fade-in2{
+    0%{
+        opacity: 0;
+        margin-top:100px;
+    }
+    100%{
+        opacity: 1;
+        margin-top:0px;
+
+    }
+}
+
 @keyframes fade-in{
     0%{
         opacity:0;
@@ -773,7 +785,8 @@ Hauteur du bloc*/
             width: 90%;
             margin: auto;
             gap:30px;
-            animation:fade-in 1s ease-in-out;
+            //animation:fade-in 1s ease-in-out;
+
             
             /*Soulignement d'une partie du texte*/
             &__souligne {
@@ -793,7 +806,8 @@ Hauteur du bloc*/
                 border: 1px solid black;
                 overflow: hidden;
                 border-radius: 25px;
-                animation:fade-in 3s ease-in-out;
+                //animation:fade-in 3s ease-in-out;
+                opacity: 0;
 
                 &__box{
                     display: flex;
@@ -827,6 +841,7 @@ Hauteur du bloc*/
                 }*/
 
             }
+
             &__prix{
                 display: flex;
                 align-items: flex-end;
@@ -836,6 +851,15 @@ Hauteur du bloc*/
                 padding: 0 25px;
             }
         }
+        /*&__plats:nth-child(1){
+            animation:fade-in2 1s 0s linear forwards;
+        }
+        &__plats:nth-child(2){
+            animation:fade-in2 1s 5s linear forwards;
+        }
+        &__plats:nth-child(3){
+            animation:fade-in2 1s 10s linear forwards;
+        }*/
         &__check{
             display: flex;
             overflow: hidden;
@@ -861,5 +885,21 @@ Hauteur du bloc*/
 .unitaire:hover .unitaire__check .fa-solid {
   animation: rotate 1s linear forwards;
 }
+/*.restaurant__menu__plats .unitaire:nth-child(1){
+    animation:fade-in2 1s linear forwards;
+    animation-delay:0.2s;
+}*/
+.restaurant__menu__plats .unitaire:nth-child(2){
+    animation:fade-in2 1s linear forwards;
+    animation-delay:0.4s;
+}
+.restaurant__menu__plats .unitaire:nth-child(3){
+    animation:fade-in2 1s linear forwards;
+    animation-delay:0.6s;
+ }
+.restaurant__menu__plats .unitaire:nth-child(4){
+    animation:fade-in2 1s linear forwards;
+    animation-delay:0.8s;
+ } 
 
 
