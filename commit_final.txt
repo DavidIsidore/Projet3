@@ -1,0 +1,8 @@
+/*COMMIT FINAL*/
+Mise en conformité des couleurs par rapport à la maquette
+Ajout de commentaires
+Séparation du code SCSS en plusieurs parties:
+	- partie commune à toutes les pages
+	- partie spécifique à la page index.html
+	- partie spécifique aux pages des restaurants
+Regroupement des mixins
